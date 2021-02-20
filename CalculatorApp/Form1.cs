@@ -1,114 +1,135 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CalculatorApp
 {
     public partial class Form1 : Form
     {
-        string numInput = "", numFirst = "", numSecond = "";
-        char operation;
-        double result = 0.0;
+        private string numInput = "", operation = "";
+        private double numFirst, numSecond;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void buttonOne_Click(object sender, EventArgs e)
+        private void updateMainDisplay(string text)
         {
-            labelDisplay.Text += "1";
+            labelMainDisplay.Text = text;
         }
 
-        private void buttonTwo_Click(object sender, EventArgs e)
+        private void updateSecondDisplay(string text)
         {
-            labelDisplay.Text += "2";
+            labelSecondDisplay.Text = text;
         }
 
-        private void buttonThree_Click(object sender, EventArgs e)
+        private void clearEntry()
         {
-            labelDisplay.Text += "3";
+            numInput = "";
+            updateMainDisplay("0");
+            buttonDecimal.Enabled = true;
         }
 
-        private void buttonFour_Click(object sender, EventArgs e)
+        private void allClear()
         {
-            labelDisplay.Text += "4";
+            clearEntry();
+            updateSecondDisplay("");
+            operation = "";
         }
 
-        private void buttonFive_Click(object sender, EventArgs e)
+        private void buttonNum_Click(object sender, EventArgs e)
         {
-            labelDisplay.Text += "5";
+            if(numInput.Length < 12)
+            { 
+                numInput += (sender as Button).Text;
+                updateMainDisplay(numInput);
+            }
         }
 
-        private void buttonSix_Click(object sender, EventArgs e)
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            labelDisplay.Text += "6";
+            int i;
+            if (int.TryParse(e.KeyChar.ToString(), out i))
+            {
+                if (numInput.Length < 12)
+                {
+                    numInput += i;
+                    updateMainDisplay(numInput);
+                }
+            }
         }
 
-        private void buttonSeven_Click(object sender, EventArgs e)
+        private void buttonOperation_Click(object sender, EventArgs e)
         {
-            labelDisplay.Text += "7";
+            if(operation == "") numFirst = Convert.ToDouble(numInput);
+            operation = (sender as Button).Text;
+            updateSecondDisplay(numFirst + operation);
+            clearEntry();
         }
-
-        private void buttonEight_Click(object sender, EventArgs e)
-        {
-            labelDisplay.Text += "8";
-        }
-
-        private void buttonNine_Click(object sender, EventArgs e)
-        {
-            labelDisplay.Text += "9";
-        }
-
-        private void buttonZero_Click(object sender, EventArgs e)
-        {
-            labelDisplay.Text += "0";
-        }
-
-        private void buttonPlus_Click(object sender, EventArgs e)
-        {
-            operation = '+';
-        }
-
+        
         private void buttonDecimal_Click(object sender, EventArgs e)
         {
-            operation = '.';
+            // Check if the number is already fractional
+            if (Convert.ToDouble(numInput) % 1 != 0) return;
+
+            numInput = labelMainDisplay.Text + ".";
+            updateMainDisplay(numInput);
         }
 
-        private void buttonMinus_Click(object sender, EventArgs e)
-        {
-            operation = '-';
-        }
-
-        private void buttonMultiplication_Click(object sender, EventArgs e)
-        {
-            operation = '*';
-        }
-
-        private void buttonDivision_Click(object sender, EventArgs e)
-        {
-            operation = '/';
-        }
 
         private void buttonEqual_Click(object sender, EventArgs e)
         {
-            operation = '=';
+            if (operation == "" || numInput == "") return; // Skip if there is no operation set
+            
+            numSecond = Convert.ToDouble(numInput);
+            double result = 0.0;
+
+            switch (operation)
+            {
+                case "+": result = numFirst + numSecond;
+                    break;
+                case "-": result = numFirst - numSecond;
+                    break;
+                case "×": result = numFirst * numSecond;
+                    break;
+                case "÷": result = numFirst / numSecond;
+                    break;
+                default: result = 0.0;
+                    break;
+            }
+
+            // Update displays
+            updateMainDisplay(Convert.ToString(result));
+            updateSecondDisplay(numFirst + operation + numSecond);
+
+            // Update numFirst and numInput
+            numFirst = result;
+            numInput = Convert.ToString(numFirst);
+
+            // Reset operation
+            operation = "";
+        }
+
+        private void buttonInverse_Click(object sender, EventArgs e)
+        {
+            if (numInput[0] != '-')
+            {
+                numInput = "-" + numInput;
+            } else
+            {
+                numInput = numInput.Substring(1);
+            }
+            updateMainDisplay(numInput);
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            operation = 'C';
+            allClear();
         }
 
         private void buttonClearEntry_Click(object sender, EventArgs e)
         {
-            operation = 'CE';
+            clearEntry();
         }
     }
 }
