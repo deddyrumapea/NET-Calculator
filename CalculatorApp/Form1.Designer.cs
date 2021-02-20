@@ -292,6 +292,7 @@ namespace CalculatorApp
             this.Controls.Add(this.buttonFour);
             this.Controls.Add(this.labelMainDisplay);
             this.Controls.Add(this.buttonZero);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Form1";
