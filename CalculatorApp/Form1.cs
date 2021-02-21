@@ -61,7 +61,8 @@ namespace CalculatorApp
 
         private void buttonOperation_Click(object sender, EventArgs e)
         {
-            if(operation == "") numFirst = Convert.ToDouble(numInput);
+            if (numInput == "") return;
+            if (operation == "") numFirst = Convert.ToDouble(numInput);
             operation = (sender as Button).Text;
             updateSecondDisplay(numFirst + operation);
             clearEntry();
@@ -70,7 +71,7 @@ namespace CalculatorApp
         private void buttonDecimal_Click(object sender, EventArgs e)
         {
             // Check if the number is already fractional
-            if (Convert.ToDouble(numInput) % 1 != 0) return;
+            if (numInput != "" && Convert.ToDouble(numInput) % 1 != 0) return;
 
             numInput = labelMainDisplay.Text + ".";
             updateMainDisplay(numInput);
@@ -112,6 +113,7 @@ namespace CalculatorApp
 
         private void buttonInverse_Click(object sender, EventArgs e)
         {
+            if (numInput == "") return;
             if (numInput[0] != '-')
             {
                 numInput = "-" + numInput;
