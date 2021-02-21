@@ -116,6 +116,7 @@ namespace CalculatorApp
             // buttonEqual
             // 
             this.buttonEqual.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.buttonEqual.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEqual.Location = new System.Drawing.Point(330, 373);
             this.buttonEqual.Name = "buttonEqual";
             this.buttonEqual.Size = new System.Drawing.Size(100, 146);
@@ -126,6 +127,7 @@ namespace CalculatorApp
             // 
             // buttonDecimal
             // 
+            this.buttonDecimal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDecimal.Location = new System.Drawing.Point(224, 449);
             this.buttonDecimal.Name = "buttonDecimal";
             this.buttonDecimal.Size = new System.Drawing.Size(100, 70);
@@ -187,6 +189,7 @@ namespace CalculatorApp
             // 
             // buttonPlus
             // 
+            this.buttonPlus.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPlus.Location = new System.Drawing.Point(330, 297);
             this.buttonPlus.Name = "buttonPlus";
             this.buttonPlus.Size = new System.Drawing.Size(100, 70);
@@ -197,6 +200,7 @@ namespace CalculatorApp
             // 
             // buttonMinus
             // 
+            this.buttonMinus.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMinus.Location = new System.Drawing.Point(330, 221);
             this.buttonMinus.Name = "buttonMinus";
             this.buttonMinus.Size = new System.Drawing.Size(100, 70);
@@ -207,6 +211,7 @@ namespace CalculatorApp
             // 
             // buttonMultiplication
             // 
+            this.buttonMultiplication.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMultiplication.Location = new System.Drawing.Point(330, 145);
             this.buttonMultiplication.Name = "buttonMultiplication";
             this.buttonMultiplication.Size = new System.Drawing.Size(100, 70);
@@ -217,6 +222,7 @@ namespace CalculatorApp
             // 
             // buttonDivision
             // 
+            this.buttonDivision.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDivision.Location = new System.Drawing.Point(224, 145);
             this.buttonDivision.Name = "buttonDivision";
             this.buttonDivision.Size = new System.Drawing.Size(100, 70);
@@ -227,6 +233,7 @@ namespace CalculatorApp
             // 
             // buttonClear
             // 
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClear.Location = new System.Drawing.Point(118, 145);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(100, 70);
@@ -237,6 +244,7 @@ namespace CalculatorApp
             // 
             // buttonClearEntry
             // 
+            this.buttonClearEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClearEntry.Location = new System.Drawing.Point(12, 145);
             this.buttonClearEntry.Name = "buttonClearEntry";
             this.buttonClearEntry.Size = new System.Drawing.Size(100, 70);
@@ -247,6 +255,7 @@ namespace CalculatorApp
             // 
             // buttonInverse
             // 
+            this.buttonInverse.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInverse.Location = new System.Drawing.Point(12, 449);
             this.buttonInverse.Name = "buttonInverse";
             this.buttonInverse.Size = new System.Drawing.Size(100, 70);
