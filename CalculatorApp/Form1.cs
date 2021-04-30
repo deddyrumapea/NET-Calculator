@@ -46,19 +46,6 @@ namespace CalculatorApp
             }
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            int i;
-            if (int.TryParse(e.KeyChar.ToString(), out i))
-            {
-                if (numInput.Length < 12)
-                {
-                    numInput += i;
-                    updateMainDisplay(numInput);
-                }
-            }
-        }
-
         private void buttonOperation_Click(object sender, EventArgs e)
         {
             if (numInput == "") return;
@@ -132,6 +119,19 @@ namespace CalculatorApp
         private void buttonClearEntry_Click(object sender, EventArgs e)
         {
             clearEntry();
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int i;
+            if (int.TryParse(e.KeyChar.ToString(), out i))
+            {
+                if (numInput.Length < 12)
+                {
+                    numInput += i;
+                    updateMainDisplay(numInput);
+                }
+            }
         }
     }
 }
